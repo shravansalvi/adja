@@ -1,0 +1,30 @@
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import javax.servlet.RequestDispatcher;
+import java.io.*;
+
+@WebServlet("/Serv")
+public class Serv extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        String name = request.getParameter("name");
+        String pass = request.getParameter("pass");
+        if ("Servlet".equals(pass)) {
+            request.setAttribute("name", name);
+            RequestDispatcher rd = request.getRequestDispatcher("welcomeServlet");
+            rd.forward(request, response);
+            return;
+        } else {
+            out.println("<h2 style='color:red;'>Invalid password. Please try again.</h2>");
+            RequestDispatcher rd = request.getRequestDispatcher("index.html");
+            rd.include(request, response);
+            return;
+        }
+    }
+}
