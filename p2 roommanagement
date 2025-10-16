@@ -1,4 +1,3 @@
-
 package com.test;
 
 import java.sql.*;
@@ -29,12 +28,16 @@ public class RoomManagement implements RoomManagementLocal {
                 ps1.setInt(3, rid);
                 ps1.executeUpdate();
                 rvalue = "room no" + rid + "is booked for coustomer named " + Cname;
+                ps1.close();
+                con1.close();
             
             }
             else
             {
                 rvalue = "no room is avalibale";
             }
+            ps.close();
+            con.close();
 
         } catch (Exception ex) {
             rvalue = ex.getMessage();
