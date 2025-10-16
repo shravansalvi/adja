@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    <center>
+        <form method="post" action="Booking.jsp">
+            <h2>Hotel Mumbai Palace</h2>
+            Room Type 
+            <input type="radio" name="r1" value="Delux">Delux
+            <input type="radio" name="r1" value="Super-Delux">Super - Delux
+            <input type="radio" name="r1" value="Suit">Suit
+            <br/><br/>
+            Customer Name <input type="text" name="t1"><br>
+            Mobile Number <input type="text" name="t2"><br><br>
+            <input type="submit" value="Confirm Booking">
+        </form>
+    </center>
+</body>
+</html>
