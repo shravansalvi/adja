@@ -1,0 +1,8 @@
+<%
+            String cname = request.getParameter("t1");
+            String rtype = request.getParameter("r1");
+            String cmobile = request.getParameter("t2");
+            RoomManagement r1=new RoomManagement();
+            String msg =r1.Booking(rtype, cname, cmobile );
+            out.println("<h1>"+msg+"<h1>");
+            %>
