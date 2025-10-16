@@ -1,0 +1,47 @@
+
+package com.test;
+
+import java.sql.*;
+import javax.ejb.Stateless;
+
+/**
+ *
+ * @author Admin
+ */
+@Stateless
+public class RoomManagement implements RoomManagementLocal {
+
+    @Override
+    public String Booking(String RType, String Cname, String Cmobile) {
+        String rvalue = "";
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("to display the sql path","root","");
+            PreparedStatement ps = con.prepareStatement("Select * form roombook where roomtype = ? and status ='Not-Booked'");
+            ps.setString(1, RType);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                int rid = rs.getInt("RoomID");
+                Connection con1 = DriverManager.getConnection("to display the sql path","root","");
+                PreparedStatement ps1 = con1.prepareStatement("Update roombook set cname=?,cmobile=?,status ='Booked' where roomid=?");
+                ps1.setString(1, Cname);
+                ps1.setString(2, Cmobile);
+                ps1.setInt(3, rid);
+                ps1.executeUpdate();
+                rvalue = "room no" + rid + "is booked for coustomer named " + Cname;
+            
+            }
+            else
+            {
+                rvalue = "no room is avalibale";
+            }
+
+        } catch (Exception ex) {
+            rvalue = ex.getMessage();
+        }
+        return rvalue;
+    }
+}
+
+// Add business logic below. (Right-click in editor and choose
+// "Insert Code > Add Business Method")
