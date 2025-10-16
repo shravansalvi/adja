@@ -1,0 +1,16 @@
+CREATE TABLE roombook (
+    roomid INT PRIMARY KEY AUTO_INCREMENT,
+    roomtype VARCHAR(30),
+    charges DECIMAL(10,2),
+    cname VARCHAR(50),
+    cmobile VARCHAR(15),
+    status VARCHAR(20)
+);
+
+INSERT INTO roombook (roomtype, charges, cname, cmobile, status)
+VALUES 
+('Deluxe', 3000, NULL, NULL, 'Not Booked'),
+('Deluxe', 3000, NULL, NULL, 'Not Booked'),
+('Super Deluxe', 4000, NULL, NULL, 'Not Booked'),
+('Super Deluxe', 4000, NULL, NULL, 'Not Booked'),
+('Suite', 5000, NULL, NULL, 'Not Booked');
